@@ -1,0 +1,37 @@
+<h1>New Product</h1>
+
+<%= form_tag '/products' do %>
+
+<div id="form_div">
+
+  <div class="inner_div">
+    <%= label_tag :image %>
+    <%= text_field_tag :image %>
+  </div>
+  <div class="inner_div">
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+  <div class="inner_div">  
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+  <div class="inner_div">
+    <%= label_tag :brand %>
+    <%= text_field_tag :brand %>
+  </div>
+  <div class="inner_div">
+    <%= label_tag :category %>
+    <%= text_field_tag :category %>
+  </div>
+  <div class="inner_div">
+    <%= label_tag :price %>
+    <%= text_field_tag :price %>
+  </div>
+</div>
+
+<div>  
+<%= submit_tag "Add Product",  :class => "add_product_button" %>
+</div>
+
+<% end %>

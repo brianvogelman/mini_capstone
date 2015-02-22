@@ -1,0 +1,17 @@
+<h1>AutoDepot</h1>
+<h4><a href="/products/new">Add new products</a></h4>
+<h4><a href="/products?sort=title">Sort Ascending</a></h4>
+<h4><a href="/products?random=true">Random</a></h4>
+<br>
+<% @products.each do |product| %>
+<div class = "prod_div">
+  <img src="<%= product.image %>" alt "image" height="42" width="42">
+  <a href="/products/<%= product.id %>"><h2><%= product.title %></h2></a>
+  <!--  <h2>Description: <%= product.description %></h2>
+        <h2>Brand: <%= product.brand %></h2>
+        <h2>Category: <%= product.category %></h2> -->
+  <h2>Price: <%= number_to_currency(product.price) %></h2>
+  <h2><%= product.sale_message %></h2>
+  <hr>
+</div>
+<% end %>

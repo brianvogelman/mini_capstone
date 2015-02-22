@@ -1,0 +1,38 @@
+<h1>Here is the item information:</h1>
+
+  <img src="<%= @product.image %>" alt "image" height="42" width="42">
+  <h6><%= @product.title %></h6>
+  <h6>Description: <%= @product.description %></h6>
+  <h6>Brand: <%= @product.brand %></h6>
+  <h6>Category: <%= @product.category %></h6>
+  <h6>Vendor: <%#= @vendor.name %></h6>
+  <h6>Price: <%= number_to_currency(@product.price) %></h6>
+
+<ul>
+  <% @product.product_options.each do |product_option| %>
+  <li><%= product_option.name %></li>
+  <% end %>
+</ul>
+    
+  <h6>Sales Tax: <%= number_to_currency(@product.sales_tax) %></h6>
+  <h6>Total: <%= number_to_currency(@product.total) %></h6>
+  <h6><%= @product.sale_message %></h6>
+
+    <%= form_tag "/orders" do %>
+
+        <%= label_tag :quantity %>
+        <%= text_field_tag :quantity %>
+
+        <%= hidden_field_tag :product_id, @product.id %>
+  <div>  
+  <%= submit_tag "Buy Now", :class => "add_buy_product_button" %>
+  </div>
+
+  <% end %>
+
+  <br>
+  <a href="/products/<%= @product.id %>/edit" class="btn btn-default btn-sm">Edit</a>
+  <br>
+  <br>
+  <a href="/products/<%= @product.id %>" class="btn btn-default btn-sm" data-method="delete" rel="nofollow" data-confirm="Are you sure?">Delete</a>
+
